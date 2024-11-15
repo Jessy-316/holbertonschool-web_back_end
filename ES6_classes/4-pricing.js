@@ -1,8 +1,12 @@
 import Currency from './3-currency';
 
 export default class Pricing {
-  constructor(amount, currency) {
-    this._amount = amount;
+  /**
+    * @param {Number} ampunt
+    * @param {Currency} currency
+    */
+  constructor(ampunt, currency) {
+    this._amount = ampunt;
     this._currency = currency;
   }
 
@@ -11,6 +15,9 @@ export default class Pricing {
   }
 
   set amount(value) {
+    if (typeof value !== 'number') {
+      throw new Error('Amount must be a number');
+    }
     this._amount = value;
   }
 
@@ -19,16 +26,17 @@ export default class Pricing {
   }
 
   set currency(value) {
+    if (!(value instanceof Currency)) {
+      throw new Error('Currency must be an instance of Currency');
+    }
     this._currency = value;
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency._name} (${this._currency._code})`;
+    return `${this.amount} ${this.currency.displayFullCurrency()}`;
   }
 
   static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
 }
-
-console.log(Currency);
