@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-    Type annotated function(add) that takes two float arguments (a, b),
+    Type annotated function (add) that takes two float arguments (a, b),
     and returns their sum as a float
 """
 
