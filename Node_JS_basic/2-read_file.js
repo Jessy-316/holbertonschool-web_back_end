@@ -12,7 +12,7 @@ function countStudents(path) {
     let totalStudents = 0;
 
     studentRows.forEach((row) => {
-      const [filename, lastname, age, field] = row.split(',');
+      const [firstname, lastname, age, field] = row.split(',');
 
       if (firstname && lastname && age && field) {
         if (!students[field]) {
