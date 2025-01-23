@@ -2,9 +2,9 @@ const fs = require('fs');
 
 function readDatabase(path) {
   return new Promise((resolve, reject) => {
-    fs.readFile(path, 'utf8', (error, data) => {
-      if (error) {
-        reject(Error(error));
+    fs.readFile(path, 'utf8', (err, data) => {
+      if (err) {
+        reject(Error(err));
         return;
       }
       const content = data.toString().split('\n');
