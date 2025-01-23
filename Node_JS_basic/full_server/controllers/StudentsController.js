@@ -32,9 +32,9 @@ class StudentsController {
         .then((fields) => {
           const students = fields[major];
 
-          response.send(200, `List: ${students.join(',')}`);
+          response.send(200, `List: ${students.join(', ')}`);
         })
-        ,catch(() => response,send(500, 'Cannot load the database'));
+        .catch(() => response.send(500, 'Cannot load the database'));
     }
   }
 }
